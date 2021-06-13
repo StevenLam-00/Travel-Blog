@@ -26,9 +26,8 @@ $posts = selectAll('posts', ['published' => 1]);
   <!-- Custom Styling -->
   <link rel="stylesheet" href="assets/css/style.css">
 
-   <!--Google translate-->
-   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+  
+  
   
 
   <title><?php echo $post['title']; ?> | AwaInspires</title>

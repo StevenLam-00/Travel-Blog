@@ -6,8 +6,6 @@ if (isset($_GET['id'])) {
 }
 $topics = selectAll('topics');
 $posts = selectAll('posts', ['published' => 1]);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,27 +44,11 @@ $posts = selectAll('posts', ['published' => 1]);
       <!-- Main Content Wrapper -->
       <div class="main-content-wrapper">
         <div class="main-content single">
-          <h1 class="post-title"> <?php echo $post['title']; ?> </h1>
+          <h1 class="post-title"><?php echo $post['title']; ?></h1>
 
           <div class="post-content">
             <?php echo html_entity_decode($post['body']); ?>
-            <hr>
-            <p><a href="<?php echo BASE_URL . '/Comments/index.php' ?>"> <br> <b> <em>>> See what do people think about this <<</em> </b> </br></a></p>
           </div>
-
-          <!-- <hr>
-
-          <div class="main-comment">
-            <div id="error_status"></div>
-            <textarea name="" class="comment_textbox form-control mb-1" id="" cols="30" rows="10"></textarea>
-            <button type="button" class="btn btn-primary add_comment_btn">Comment</button>
-          </div>
-          <hr>
-
-          <div class="comment-container">
-
-          </div> -->
-
 
         </div>
       </div>
@@ -124,7 +106,6 @@ $posts = selectAll('posts', ['published' => 1]);
 
   <!-- Custom Script -->
   <script src="assets/js/scripts.js"></script>
-
 
 </body>
 

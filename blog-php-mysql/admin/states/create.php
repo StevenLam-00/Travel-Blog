@@ -1,5 +1,5 @@
-<?php include("../path.php"); ?>
-<?php include(ROOT_PATH . "/app/controllers/posts.php");
+<?php include("../../path.php"); ?>
+<?php include(ROOT_PATH . "/app/controllers/states.php");
 adminOnly();
 ?>
 <!DOCTYPE html>
@@ -17,12 +17,12 @@ adminOnly();
     <link href="https://fonts.googleapis.com/css?family=Candal|Lora" rel="stylesheet">
 
     <!-- Custom Styling -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
 
     <!-- Admin Styling -->
-    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
 
-    <title>Admin Section - Dashboard</title>
+    <title>Admin Section - Add State</title>
 </head>
 
 <body>
@@ -37,14 +37,27 @@ adminOnly();
 
         <!-- Admin Content -->
         <div class="admin-content">
+            <div class="button-group">
+                <a href="create.php" class="btn btn-big">Add State</a>
+                <a href="index.php" class="btn btn-big">Manage States</a>
+            </div>
+
 
             <div class="content">
 
-                <h2 class="page-title">Dashboard</h2>
+                <h2 class="page-title">Add State</h2>
+                <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
 
-                <?php include(ROOT_PATH . '/app/includes/messages.php'); ?>
+                <form action="create.php" method="post">
+                    <div>
+                        <label>Name</label>
+                        <input type="text" name="name" value="<?php echo $name ?>" class="text-input">
+                    </div>
 
-
+                    <div>
+                        <button type="submit" name="add-state" class="btn btn-big">Add State</button>
+                    </div>
+                </form>
 
             </div>
 
@@ -61,7 +74,7 @@ adminOnly();
     <!-- Ckeditor -->
     <script src="https://cdn.ckeditor.com/ckeditor5/12.2.0/classic/ckeditor.js"></script>
     <!-- Custom Script -->
-    <script src="../assets/js/scripts.js"></script>
+    <script src="../../assets/js/scripts.js"></script>
 
 </body>
 

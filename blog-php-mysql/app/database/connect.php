@@ -2,8 +2,8 @@
 
 $host = 'localhost';
 $user = 'root';
-$pass = 'root';
-$db_name = 'blog2';
+$pass = '';
+$db_name = 'Tourism Review';
 
 $conn = new MySQLi($host, $user, $pass, $db_name);
 

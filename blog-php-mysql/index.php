@@ -1,10 +1,9 @@
-<?php 
+<?php
 include("path.php");
 include(ROOT_PATH . "/app/controllers/topics.php");
 
 $posts = array();
 $postsTitle = 'Recent Posts';
-
 
 if (isset($_GET['t_id'])) {
   $posts = getPostsByTopicId($_GET['t_id']);
@@ -17,19 +16,6 @@ if (isset($_GET['t_id'])) {
 }
 
 ?>
-
-
-<?php
-if (isset($_SESSION['status'])) { ?>
-    <div class="alert">
-        <?= $_SESSION['status']; ?>
-    </div>
-<?php
-    unset($_SESSION['status']);
-} ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,8 +25,7 @@ if (isset($_SESSION['status'])) { ?>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Candal|Lora" rel="stylesheet">
@@ -69,7 +54,7 @@ if (isset($_SESSION['status'])) { ?>
 
       <div class="post-wrapper">
 
-        <?php foreach ($posts as $post): ?>
+        <?php foreach ($posts as $post) : ?>
           <div class="post">
             <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="slider-image">
             <div class="post-info">
@@ -94,7 +79,7 @@ if (isset($_SESSION['status'])) { ?>
       <div class="main-content">
         <h1 class="recent-post-title"><?php echo $postsTitle ?></h1>
 
-        <?php foreach ($posts as $post): ?>
+        <?php foreach ($posts as $post) : ?>
           <div class="post clearfix">
             <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="post-image">
             <div class="post-preview">
@@ -106,11 +91,10 @@ if (isset($_SESSION['status'])) { ?>
                 <?php echo html_entity_decode(substr($post['body'], 0, 150) . '...'); ?>
               </p>
               <a href="single.php?id=<?php echo $post['id']; ?>" class="btn read-more">Read More</a>
-              
             </div>
-          </div>    
+          </div>
         <?php endforeach; ?>
-        
+
 
 
       </div>
@@ -129,7 +113,7 @@ if (isset($_SESSION['status'])) { ?>
         <div class="section topics">
           <h2 class="section-title">Topics</h2>
           <ul>
-            <?php foreach ($topics as $key => $topic): ?>
+            <?php foreach ($topics as $key => $topic) : ?>
               <li><a href="<?php echo BASE_URL . '/index.php?t_id=' . $topic['id'] . '&name=' . $topic['name'] ?>"><?php echo $topic['name']; ?></a></li>
             <?php endforeach; ?>
           </ul>

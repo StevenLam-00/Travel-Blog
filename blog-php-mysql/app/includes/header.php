@@ -7,7 +7,7 @@
       <li><a href="<?php echo BASE_URL . '/index.php' ?>">Home</a></li>
       <li><a href="#">About</a></li>
       <li><a href="#">Services</a></li>
-      <li class="ct-language">Language
+      <li class="ct-language "><a>Language</a>
                <ul class="list-unstyled ct-language__dropdown">
                  <li><a href="#googtrans(en|en)" class="lang-en lang-select" data-lang="en">USA</a></li>
                  <li><a href="#googtrans(en|es)" class="lang-es lang-select" data-lang="es">MEXICO</a></li>

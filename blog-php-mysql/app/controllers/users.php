@@ -108,7 +108,7 @@ if (isset($_POST['login-btn'])) {
         if ($user && password_verify($_POST['password'], $user['password'])) {
             loginUser($user);
         } else {
-           array_push($errors, 'Wrong Email or Password!');
+           array_push($errors, 'Wrong User or Password!');
         }
     }
 

@@ -168,3 +168,84 @@ function searchPosts($term)
     $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     return $records;
 }
+
+function getPublishedVNAccommPosts()
+{
+    global $conn;
+    $sql = "SELECT vna.*, u.username FROM vnaccomms AS vna JOIN users AS u ON vna.user_id=u.id WHERE vna.published=?";
+
+    $stmt = executeQuery($sql, ['published' => 1]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+
+function getVNAccommPostsByProvinceId($province_id)
+{
+    global $conn;
+    $sql = "SELECT vna.*, u.username FROM vnaccomms AS vna JOIN users AS u ON vna.user_id=u.id WHERE vna.published=? AND province_id=?";
+
+    $stmt = executeQuery($sql, ['published' => 1, 'province_id' => $province_id]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+
+function searchVNAccommPosts($term)
+{
+    $match = '%' . $term . '%';
+    global $conn;
+    $sql = "SELECT 
+                vna.*, u.username 
+            FROM vnaccomms AS vna 
+            JOIN users AS u 
+            ON vna.user_id=u.id 
+            WHERE vna.published=?
+            AND vna.title LIKE ? OR vna.body LIKE ?";
+
+
+    $stmt = executeQuery($sql, ['published' => 1, 'title' => $match, 'body' => $match]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+
+function getPublishedUSAccommPosts()
+{
+    global $conn;
+    $sql = "SELECT usa.*, u.username FROM usaccomms AS usa JOIN users AS u ON usa.user_id=u.id WHERE usa.published=?";
+
+    $stmt = executeQuery($sql, ['published' => 1]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+
+function getUSAccommPostsByStateId($state_id)
+{
+    global $conn;
+    $sql = "SELECT usa.*, u.username FROM usaccomms AS usa JOIN users AS u ON usa.user_id=u.id WHERE usa.published=? AND state_id=?";
+
+    $stmt = executeQuery($sql, ['published' => 1, 'state_id' => $state_id]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+
+function searchUSAccommPosts($term)
+{
+    $match = '%' . $term . '%';
+    global $conn;
+    $sql = "SELECT 
+                usa.*, u.username 
+            FROM usaccomms AS usa 
+            JOIN users AS u 
+            ON usa.user_id=u.id 
+            WHERE usa.published=?
+            AND usa.title LIKE ? OR usa.body LIKE ?";
+
+
+    $stmt = executeQuery($sql, ['published' => 1, 'title' => $match, 'body' => $match]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 08, 2021 at 10:04 AM
+-- Generation Time: Jun 19, 2021 at 09:46 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -94,6 +94,25 @@ INSERT INTO `posts` (`id`, `user_id`, `topic_id`, `title`, `image`, `body`, `pub
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `provinces`
+--
+
+CREATE TABLE `provinces` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `provinces`
+--
+
+INSERT INTO `provinces` (`id`, `name`) VALUES
+(1, 'Can Tho'),
+(2, 'Sai Gon');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `resetPassword`
 --
 
@@ -102,6 +121,35 @@ CREATE TABLE `resetPassword` (
   `code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `resetPassword`
+--
+
+INSERT INTO `resetPassword` (`id`, `code`, `email`) VALUES
+(1, '160cc16840873c', 'khuukhonlam@gmail.com'),
+(2, '160cc16c335566', 'khuukhonlam@gmail.com'),
+(3, '160cc17518e0b3', 'khuukhonlam@gmail.com'),
+(5, '160cc8f357822d', 'khuukhonlam@gmail.com'),
+(6, '160cc907c46164', 'khuukhonlam@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `states`
+--
+
+CREATE TABLE `states` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `states`
+--
+
+INSERT INTO `states` (`id`, `name`) VALUES
+(1, 'Texas');
 
 -- --------------------------------------------------------
 
@@ -131,6 +179,23 @@ INSERT INTO `topics` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `usacomms`
+--
+
+CREATE TABLE `usacomms` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `state_id` int(11) DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `body` text COLLATE utf8_unicode_ci NOT NULL,
+  `published` tinyint(4) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -148,8 +213,32 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `admin`, `username`, `email`, `password`, `created_at`) VALUES
-(23, 1, 'Lam', 'khuukhonlam@gmail.com', '$2y$10$TSHIe/V8Gld1z9F7PvcPO..aGtTr4Oa7oiwaS2oWuu7VZxVyeEzU2', '2021-06-04 02:52:06'),
+(23, 1, 'Lam', 'khuukhonlam@gmail.com', '$2y$10$DnAhZXJg6jf3Hf/jYnJA/.EQ1FSJ0WacnYioLrALYdWUQcvYpQw7u', '2021-06-04 02:52:06'),
 (28, 0, 'steven', 'chickengaac@gmail.com', '$2y$10$E0TO1Sfjq3zEQx1vSCTKpODcAov30VdPtZMSA1ITREvKE5JbTd3HC', '2021-06-05 17:08:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vnaccomms`
+--
+
+CREATE TABLE `vnaccomms` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `province_id` int(11) DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `body` text COLLATE utf8_unicode_ci NOT NULL,
+  `published` tinyint(4) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `vnaccomms`
+--
+
+INSERT INTO `vnaccomms` (`id`, `user_id`, `province_id`, `title`, `image`, `body`, `published`, `created_at`) VALUES
+(1, 23, 1, 'CAN THO RIGHT ', '1624092457_Screen Shot 2021-06-18 at 10.48.20 AM.png', '&lt;p&gt;Cần Thơ l&agrave; một th&agrave;nh phố thuộc tỉnh Cần Thơ cũ v&agrave; l&agrave; tỉnh lỵ của tỉnh Cần Thơ trước khi th&agrave;nh lập th&agrave;nh phố Cần Thơ trực thuộc trung ương. Th&agrave;nh phố Cần Thơ l&uacute;c bấy giờ c&oacute; địa giới h&agrave;nh ch&iacute;nh tương ứng với c&aacute;c quận Ninh Kiều, B&igrave;nh Thủy, một phần quận C&aacute;i Răng v&agrave; một phần huyện Phong Điền ng&agrave;y nay&lt;/p&gt;', 1, '2021-06-19 15:47:37');
 
 --
 -- Indexes for dumped tables
@@ -175,9 +264,21 @@ ALTER TABLE `posts`
   ADD KEY `topic_id` (`topic_id`);
 
 --
+-- Indexes for table `provinces`
+--
+ALTER TABLE `provinces`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `resetPassword`
 --
 ALTER TABLE `resetPassword`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `states`
+--
+ALTER TABLE `states`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -188,11 +289,23 @@ ALTER TABLE `topics`
   ADD UNIQUE KEY `name` (`name`);
 
 --
+-- Indexes for table `usacomms`
+--
+ALTER TABLE `usacomms`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `vnaccomms`
+--
+ALTER TABLE `vnaccomms`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -217,10 +330,22 @@ ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
+-- AUTO_INCREMENT for table `provinces`
+--
+ALTER TABLE `provinces`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `resetPassword`
 --
 ALTER TABLE `resetPassword`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `states`
+--
+ALTER TABLE `states`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `topics`
@@ -229,10 +354,22 @@ ALTER TABLE `topics`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `usacomms`
+--
+ALTER TABLE `usacomms`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `vnaccomms`
+--
+ALTER TABLE `vnaccomms`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

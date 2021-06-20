@@ -3,13 +3,6 @@
 guestsOnly();
 ?>
 
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 

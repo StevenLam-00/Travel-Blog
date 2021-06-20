@@ -16,7 +16,7 @@ if (isset($_POST['add_subreplies'])){
         echo "Comment Replied to User";
     }
     else {
-        echo "Something went wrong";
+        echo "You must log in to reply this comment";
     }
 
 }
@@ -67,7 +67,7 @@ if(isset($_POST['add_reply'])){
         echo "Comment Replied";
     }
     else {
-        echo "Something went wrong";
+        echo "You must log in to reply this comment";
     }
 
 }

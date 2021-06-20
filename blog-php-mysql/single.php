@@ -26,6 +26,10 @@ $posts = selectAll('posts', ['published' => 1]);
   <!-- Custom Styling -->
   <link rel="stylesheet" href="assets/css/style.css">
 
+  
+  
+  
+
   <title><?php echo $post['title']; ?> | AwaInspires</title>
 </head>
 

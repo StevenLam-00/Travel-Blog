@@ -3,7 +3,7 @@
     <div class="footer-content">
 
       <div class="footer-section about">
-        <h1 class="logo-text"><span>Awa</span>Inspires</h1>
+        <h1 class="logo-text"><span>Tourism</span>Review</h1>
         <p>
           AwaInspires is a fictional blog conceived for the purpose of a tutorial on YouTube.
           However, Awa has a blog called pieceofadvice.org where he writes truly inspiring stuff.
@@ -24,32 +24,32 @@
         <h2>Quick Links</h2>
         <br>
         <ul>
-          <a href="#">
-            <li>Events</li>
+        <a href="https://www.jetsetter.com/">
+            <li>Discover your dream destination with Jetsetter</li>
           </a>
-          <a href="#">
-            <li>Team</li>
+          <a href="https://www.thefork.com/">
+            <li>Book the best restaurants with TheFork</li>
           </a>
-          <a href="#">
-            <li>Mentores</li>
+          <a href="https://www.viator.com/">
+            <li>Book tours and attraction tickets on Viator</li>
           </a>
-          <a href="#">
-            <li>Gallery</li>
+          <a href="https://www.cruisecritic.com.au/?sr=3&sd=1">
+            <li>Read cruise reviews on Cruise Critic</li>
           </a>
-          <a href="#">
-            <li>Terms and Conditions</li>
-          </a>
+        
         </ul>
       </div>
 
       <div class="footer-section contact-form">
         <h2>Contact us</h2>
         <br>
-        <form action="index.html" method="post">
-          <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
-          <textarea rows="4" name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
+        <form action="https://formspree.io/f/mayaeapq/" method="post">
+          <input type="email" name="Send by:" id="email-address"  class="text-input contact-input" placeholder="Your email address..." require>
+          <textarea rows="4" name="message" id="Message:" class="text-input contact-input" placeholder="Your message..."></textarea>
+          <input type="hidden" name="_subject" id="email-subject" value="Question and Inquiries">
           <button type="submit" class="btn btn-big contact-btn">
             <i class="fas fa-envelope"></i>
+
             Send
           </button>
         </form>

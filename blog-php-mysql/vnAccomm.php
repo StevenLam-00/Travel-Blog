@@ -80,7 +80,7 @@ if (isset($_GET['p_id'])) {
                     <h2 class="section-title">Provinces</h2>
                     <ul>
                         <?php foreach ($provinces as $key => $province) : ?>
-                            <li><a href="<?php echo BASE_URL . '/index.php?p_id=' . $province['id'] . '&name=' . $province['name'] ?>"><?php echo $province['name']; ?></a></li>
+                            <li><a href="<?php echo BASE_URL . '/vnAccomm.php?p_id=' . $province['id'] . '&name=' . $province['name'] ?>"><?php echo $province['name']; ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>

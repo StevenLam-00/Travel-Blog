@@ -3,7 +3,7 @@ This is a porject of group 1 for course Web Application Development.
 
 Run on MAMP or XAMPP
 ## HOW TO RUN
-- Project folder must be located at htdocs folder of MAMP or XAMPP.
+- Project folder must be located at "htdocs" folder of MAMP or XAMPP.
 
 
 - Database connection
